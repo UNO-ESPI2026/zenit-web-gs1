@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+    <title>Zenit | Criar conta</title>
+</head>
+<body>
+
+    <main class="cadastro-pagina">
+        <div class="cadastro-card">
+
+            <a href="index.html">
+                <img src="../assets/logo-transparent.svg" alt="Logo Zenit" class="cadastro-logo">
+            </a>
+            <p class="cadastro-subtitulo">Crie sua conta para acessar a plataforma</p>
+
+            <div class="cadastro-erro" id="cadastro-erro"></div>
+
+            <div class="form-group">
+                <label class="form-label" for="nome">Nome completo</label>
+                <input class="form-input" id="nome" type="text" placeholder="Digite seu nome">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email">E-mail</label>
+                <input class="form-input" id="email" type="email" placeholder="exemplo@email.com">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="senha">Senha</label>
+                <input class="form-input" id="senha" type="password" placeholder="Mínimo 6 caracteres">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="perfil">Perfil de acesso</label>
+                <select class="form-select" id="perfil">
+                    <option value="">Selecione...</option>
+                    <option value="agr">Agricultor</option>
+                    <option value="pes">Pesquisador espacial</option>
+                </select>
+            </div>
+
+            <button class="btn-cadastrar" id="btn-cadastrar" onclick="cadastrar()">Criar conta</button>
+
+            <div class="cadastro-links">
+                <a href="login.html">Já tenho uma conta</a>
+                <span>·</span>
+                <a href="../../index.html">Voltar</a>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/cadastro.js"></script>
+</body>
+</html>

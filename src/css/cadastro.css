@@ -1,0 +1,174 @@
+:root {
+    --cor-azul-primario: #0B1A2E;
+    --cor-azul-secundario: #1A5CA8;
+    --cor-azul-terciario: #A8CDEF;
+    --cor-verde-primario: #1D9E75;
+    --cor-verde-secundario: #6DDBB8;
+    --cor-branca-marca: #F5F3EE;
+    --gradiente-azul: linear-gradient(135deg, #0B1A2E 45%, #1A5CA8 100%);
+    --fonte-titulo: "Space Grotesk", sans-serif;
+    --fonte-corpo: "Inter", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    background: var(--gradiente-azul);
+    min-height: 100vh;
+}
+
+.cadastro-pagina {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+}
+
+.cadastro-card {
+    background: rgba(168, 205, 239, 0.05);
+    border: 1px solid rgba(168, 205, 239, 0.12);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.cadastro-logo {
+    width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto 8px;
+}
+
+.cadastro-subtitulo {
+    font-family: var(--fonte-corpo);
+    font-size: 0.85rem;
+    color: var(--cor-azul-terciario);
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.cadastro-erro {
+    background: rgba(226, 75, 74, 0.12);
+    border: 1px solid rgba(226, 75, 74, 0.3);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-family: var(--fonte-corpo);
+    font-size: 0.8rem;
+    color: #F09595;
+    line-height: 1.5;
+    text-align: center;
+    display: none;
+}
+
+.cadastro-erro.visivel {
+    display: block;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.form-label {
+    font-family: var(--fonte-corpo);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--cor-azul-terciario);
+}
+
+.form-input {
+    font-family: var(--fonte-corpo);
+    font-size: 0.85rem;
+    padding: 10px 13px;
+    border-radius: 8px;
+    border: 1px solid rgba(168, 205, 239, 0.15);
+    background: rgba(168, 205, 239, 0.06);
+    color: var(--cor-branca-marca);
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-input:focus {
+    border-color: rgba(168, 205, 239, 0.4);
+}
+
+.form-input::placeholder {
+    color: rgba(168, 205, 239, 0.3);
+}
+
+.form-select {
+    font-family: var(--fonte-corpo);
+    font-size: 0.85rem;
+    padding: 10px 13px;
+    border-radius: 8px;
+    border: 1px solid rgba(168, 205, 239, 0.15);
+    background: rgba(168, 205, 239, 0.06);
+    color: var(--cor-branca-marca);
+    outline: none;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.form-select option {
+    background: var(--cor-azul-primario);
+    color: var(--cor-branca-marca);
+}
+
+.form-select:focus {
+    border-color: rgba(168, 205, 239, 0.4);
+}
+
+.btn-cadastrar {
+    width: 100%;
+    font-family: var(--fonte-corpo);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid var(--cor-verde-primario);
+    background: var(--cor-verde-primario);
+    color: var(--cor-branca-marca);
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 4px;
+    margin-bottom: 20px;
+}
+
+.btn-cadastrar:hover {
+    background: transparent;
+    color: var(--cor-verde-secundario);
+    border-color: var(--cor-verde-secundario);
+}
+
+.cadastro-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: rgba(168, 205, 239, 0.4);
+}
+
+.cadastro-links a {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-azul-terciario);
+    text-decoration: underline;
+    transition: 0.2s ease;
+}
+
+.cadastro-links a:hover {
+    color: var(--cor-branca-marca);
+}
