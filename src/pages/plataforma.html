@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/plataforma.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+    <title>Zenit | Plataforma</title>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!--Início: Topbar -->
+        <header class="topbar">
+            <a href="index.html">
+                <img src="../assets/logo-zenit.svg" alt="Logo Zenit" class="topbar-logo">
+            </a>
+            <div class="topbar-tabs">
+                <button class="tab active" id="tab-agr" onclick="switchView('agr', this)">Agricultor</button>
+                <button class="tab" id="tab-pes" onclick="switchView('pes', this)">Pesquisador</button>
+            </div>
+            <div class="topbar-usuario">
+                <div class="avatar" id="topbar-avatar">--</div>
+                <span id="topbar-nome">Carregando...</span>
+                <button class="btn-sair" onclick="sair()">Sair</button>
+            </div>
+        </header>
+        <!--Fim: Topbar-->
+
+        <!-- Início: View agricultor -->
+        <div class="view active" id="view-agr">
+            <div class="agr-layout">
+
+                <aside class="sidebar">
+                    <button class="nav-item active" onclick="switchPage('dashboard', this)">Dashboard</button>
+                    <button class="nav-item" onclick="switchPage('alertas', this)">Alertas</button>
+                    <button class="nav-item" onclick="switchPage('recomendacoes', this)">Recomendações</button>
+                    <button class="nav-item" onclick="switchPage('historico', this)">Histórico</button>
+                    <div class="nav-sep"></div>
+                    <button class="nav-item">Configurações</button>
+                </aside>
+
+                <main class="main">
+
+                    <!-- Início: Dashboard -->
+                    <div class="page active" id="page-dashboard">
+                        <p class="sec-title">ZENIT SENSOR - AO VIVO</p>
+                        <div class="row" style="margin-bottom: 15px;">
+                            <div class="metric-card">
+                                <p class="metric-label">Umidade do solo</p>
+                                <p class="metric-value">68%</p>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 68%;"></div>
+                                </div>
+                                <span class="mstatus st-ok">Normal</span>
+                            </div>
+                            <div class="metric-card">
+                                <p class="metric-label">Temperatura</p>
+                                <p class="metric-value">27°C</p>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 54%;"></div>
+                                </div>
+                                <span class="mstatus st-ok">Normal</span>
+                            </div>
+                            <div class="metric-card-atencao">
+                                <p class="metric-label">pH do solo</p>
+                                <p class="metric-value-atencao">5.8</p>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 48%; background: #FAC775;"></div>
+                                </div>
+                                <span class="mstatus st-warn">Atenção</span>
+                            </div>
+                            <div class="metric-card">
+                                <p class="metric-label">Nutrientes</p>
+                                <p class="metric-value">72%</p>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 72%;"></div>
+                                </div>
+                                <span class="mstatus st-ok">Normal</span>
+                            </div>
+                        </div>
+
+                        <p class="dados-title">Dados satelitais — Sentinel-2</p>
+                        <div class="row" style="margin-bottom: 15px;">
+                            <div class="metric-card">
+                                <p class="metric-label">NDVI</p>
+                                <p class="metric-value">0.74</p>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 74%;"></div>
+                                </div>
+                                <span class="mstatus st-ok">Vegetação saudável</span>
+                            </div>
+                            <div class="metric-card-atencao">
+                                <p class="metric-label">Temp. superficial</p>
+                                <p class="metric-value-atencao">31°C</p>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 62%; background: #FAC775;"></div>
+                                </div>
+                                <span class="mstatus st-warn">Elevada</span>
+                            </div>
+                        </div>
+
+                        <p class="alerta-title">Alerta ativo</p>
+                        <div class="alert-card">
+                            <div class="alert-icon ai-amber">
+                                <img src="../assets/icons/exclamation-mark.svg" alt="Ícone de alerta">
+                            </div>
+                            <div>
+                                <p class="alert-title">pH abaixo do ideal</p>
+                                <p class="alert-desc">Valor atual 5.8 — ideal entre 6.0 e 7.0 para milho</p>
+                            </div>
+                            <span class="alert-time">Hoje 08:42</span>
+                        </div>
+                    </div>
+                    <!-- Fim: Dashboard -->
+
+                    <!-- Início: Alertas -->
+                    <div class="page" id="page-alertas">
+                        <p class="sec-title">Histórico de alertas</p>
+                        <div class="alert-card">
+                            <div class="alert-icon ai-amber">
+                                <img src="../assets/icons/exclamation-mark.svg" alt="Ícone de alerta">
+                            </div>
+                            <div>
+                                <p class="alert-title">pH abaixo do ideal</p>
+                                <p class="alert-desc">Valor 5.8 — ideal 6.0-7.0</p>
+                            </div>
+                            <span class="alert-time">Hoje 08:42</span>
+                        </div>
+                        <div class="alert-card">
+                            <div class="alert-icon ai-green">
+                                <img src="../assets/icons/check.svg" alt="Ícone de alerta">
+                            </div>
+                            <div>
+                                <p class="alert-title">Janela de colheita em 5 dias</p>
+                                <p class="alert-desc">Previsão favorável de 12 a 14/06</p>
+                            </div>
+                            <span class="alert-time">Ontem 14:10</span>
+                        </div>
+                        <div class="alert-card">
+                            <div class="alert-icon ai-blue">
+                                <img src="../assets/icons/arrow-down.svg" alt="Ícone de alerta">
+                            </div>
+                            <div>
+                                <p class="alert-title">Chuva prevista amanhã</p>
+                                <p class="alert-desc">18mm — irrigação não necessária</p>
+                            </div>
+                            <span class="alert-time">Ontem 09:00</span>
+                        </div>
+                    </div>
+                    <!-- Fim: Alertas -->
+
+                    <!-- Início: Recomendações -->
+                    <div class="page" id="page-recomendacoes">
+                        <p class="sec-title">Recomendações ativas</p>
+                        <div class="rec-card green">
+                            <p class="rec-label" style="color: #6DDBB8;">Irrigação</p>
+                            <p class="rec-text">Irrigar amanhã cedo — estimativa de 20mm</p>
+                            <p class="rec-sub">Chuva de 8mm prevista para quarta, umidade em 68%</p>
+                        </div>
+                        <div class="rec-card amber">
+                            <p class="rec-label" style="color: #FAC775;">Solo</p>
+                            <p class="rec-text">Aplicar calcário para corrigir pH</p>
+                            <p class="rec-sub">pH em 5.8 — abaixo do ideal para milho (6.0-7.0)</p>
+                        </div>
+                        <div class="rec-card blue">
+                            <p class="rec-label" style="color: #A8CDEF;">Colheita</p>
+                            <p class="rec-text">Janela ideal: 12 a 14 de junho</p>
+                            <p class="rec-sub">NDVI 0.74 estável, maturação indicada pela temperatura</p>
+                        </div>
+                    </div>
+                    <!-- Fim: Recomendações -->
+
+                    <!-- Início: Histórico -->
+                    <div class="page" id="page-historico">
+                        <p class="sec-title">NDVI — últimos 7 dias</p>
+                        <div class="chart-mini">
+                            <div class="bar-c" style="height: 60%;" title="Seg: 60%"></div>
+                            <div class="bar-c" style="height: 72%;" title="Ter: 72%"></div>
+                            <div class="bar-c" style="height: 65%;" title="Qua: 65%"></div>
+                            <div class="bar-c" style="height: 80%;" title="Qui: 80%"></div>
+                            <div class="bar-c" style="height: 55%;" title="Sex: 55%"></div>
+                            <div class="bar-c" style="height: 62%;" title="Sáb: 62%"></div>
+                            <div class="bar-c" style="height: 68%; background: rgba(29,158,117,0.55);"
+                                title="Hoje: 68%"></div>
+                        </div>
+
+                        <p class="sec-title">Umidade do solo — últimos 7 dias</p>
+                        <div class="chart-mini">
+                            <div class="bar-c" style="height: 70%; background: rgba(168,205,239,0.25);"></div>
+                            <div class="bar-c" style="height: 72%; background: rgba(168,205,239,0.25);"></div>
+                            <div class="bar-c" style="height: 71%; background: rgba(168,205,239,0.25);"></div>
+                            <div class="bar-c" style="height: 75%; background: rgba(168,205,239,0.25);"></div>
+                            <div class="bar-c" style="height: 73%; background: rgba(168,205,239,0.25);"></div>
+                            <div class="bar-c" style="height: 74%; background: rgba(168,205,239,0.25);"></div>
+                            <div class="bar-c" style="height: 74%; background: rgba(168,205,239,0.4);"></div>
+                        </div>
+
+                        <p class="sec-title">Imagem orbital — Sentinel-2</p>
+                        <div class="historico-satelite">
+                            <img src="../assets/sentinel-2.jpg"
+                                alt="Imagem de satélite com vista aérea da plantação monitorada pelo Zenit">
+                            <div class="historico-satelite-legenda">
+                                <span>Sentinel-2 · Atualizado há 3 dias</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim: Histórico -->
+
+                </main>
+            </div>
+        </div>
+        <!-- Fim: View agricultor -->
+
+        <!-- Início: View Pesquisador -->
+        <div class="view" id="view-pes">
+            <div class="pes-layout">
+
+                <p class="sec-title">Padrões de cultivo eficiente</p>
+
+                <div class="filter-row">
+                    <select class="fsel">
+                        <option>Todas as culturas</option>
+                        <option>Milho</option>
+                        <option>Soja</option>
+                        <option>Alface</option>
+                        <option>Tomate</option>
+                    </select>
+                    <select class="fsel">
+                        <option>Todas as regiões</option>
+                        <option>Tropical</option>
+                        <option>Subtropical</option>
+                        <option>Semiárido</option>
+                    </select>
+                    <span class="filter-label">Condições extremas:</span>
+                    <button class="fbadge" onclick="this.classList.toggle('on')">Baixa umidade</button>
+                    <button class="fbadge on" onclick="this.classList.toggle('on')">pH extremo</button>
+                    <button class="fbadge" onclick="this.classList.toggle('on')">Alta temp.</button>
+                </div>
+
+                <div class="pat-cards">
+                    <div class="pat-card">
+                        <p class="pat-title">Melhor rendimento/m²</p>
+                        <p class="pat-value">4.2 kg/m²</p>
+                        <p class="pat-sub">Alface hidropônica, pH 6.2</p>
+                    </div>
+                    <div class="pat-card">
+                        <p class="pat-title">Menor consumo de água</p>
+                        <p class="pat-value">1.8 L/kg</p>
+                        <p class="pat-sub">Tomate semiárido, gotejamento</p>
+                    </div>
+                    <div class="pat-card">
+                        <p class="pat-title">Padrões coletados</p>
+                        <p class="pat-value">3.847</p>
+                        <p class="pat-sub">412 propriedades, 8 estados</p>
+                    </div>
+                </div>
+
+                <p class="sec-title">Ranking de eficiência</p>
+                <div class="rt">
+                    <div class="rt-hdr">
+                        <div class="rt-hcol col-wide"># Cultura</div>
+                        <div class="rt-hcol">Prod. m²</div>
+                        <div class="rt-hcol">Água/kg</div>
+                        <div class="rt-hcol">Condição</div>
+                    </div>
+                    <div class="rt-row">
+                        <div class="rt-cell col-wide">
+                            <div class="rrank r1">1</div>
+                            <div>
+                                <p>Alface hidropônica</p>
+                                <div class="ebar">
+                                    <div class="efill" style="width: 92%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rt-cell">4.2 kg</div>
+                        <div class="rt-cell">1.8 L</div>
+                        <div class="rt-cell"><span class="tag tg">pH extremo</span></div>
+                    </div>
+                    <div class="rt-row">
+                        <div class="rt-cell col-wide">
+                            <div class="rrank r2">2</div>
+                            <div>
+                                <p>Tomate semiárido</p>
+                                <div class="ebar">
+                                    <div class="efill" style="width: 78%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rt-cell">3.1 kg</div>
+                        <div class="rt-cell">2.4 L</div>
+                        <div class="rt-cell"><span class="tag ta">Baixa umidade</span></div>
+                    </div>
+                    <div class="rt-row">
+                        <div class="rt-cell col-wide">
+                            <div class="rrank r3">3</div>
+                            <div>
+                                <p>Milho irrigado</p>
+                                <div class="ebar">
+                                    <div class="efill" style="width: 65%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rt-cell">2.8 kg</div>
+                        <div class="rt-cell">3.2 L</div>
+                        <div class="rt-cell"><span class="tag tb">Normal</span></div>
+                    </div>
+                    <div class="rt-row">
+                        <div class="rt-cell col-wide">
+                            <div class="rrank rn">4</div>
+                            <div>
+                                <p>Soja tropical</p>
+                                <div class="ebar">
+                                    <div class="efill" style="width: 54%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rt-cell">2.1 kg</div>
+                        <div class="rt-cell">3.9 L</div>
+                        <div class="rt-cell"><span class="tag ta">Alta temp.</span></div>
+                    </div>
+                </div>
+
+                <p class="sec-title">Dados brutos</p>
+                <div class="tabela-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Cultura</th>
+                                <th>Região</th>
+                                <th>Umidade</th>
+                                <th>pH</th>
+                                <th>Temp.</th>
+                                <th>Nutrientes</th>
+                                <th>Prod. m²</th>
+                                <th>Água/kg</th>
+                                <th>Condição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alface</td>
+                                <td>Subtropical</td>
+                                <td>65%</td>
+                                <td>6.2</td>
+                                <td>22°C</td>
+                                <td>78%</td>
+                                <td>4.2 kg</td>
+                                <td>1.8 L</td>
+                                <td><span class="tag tg">pH extremo</span></td>
+                            </tr>
+                            <tr>
+                                <td>Tomate</td>
+                                <td>Semiárido</td>
+                                <td>38%</td>
+                                <td>5.9</td>
+                                <td>34°C</td>
+                                <td>62%</td>
+                                <td>3.1 kg</td>
+                                <td>2.4 L</td>
+                                <td><span class="tag ta">Baixa umidade</span></td>
+                            </tr>
+                            <tr>
+                                <td>Milho</td>
+                                <td>Tropical</td>
+                                <td>72%</td>
+                                <td>6.5</td>
+                                <td>28°C</td>
+                                <td>85%</td>
+                                <td>2.8 kg</td>
+                                <td>3.2 L</td>
+                                <td><span class="tag tb">Normal</span></td>
+                            </tr>
+                            <tr>
+                                <td>Soja</td>
+                                <td>Tropical</td>
+                                <td>68%</td>
+                                <td>6.1</td>
+                                <td>31°C</td>
+                                <td>71%</td>
+                                <td>2.1 kg</td>
+                                <td>3.9 L</td>
+                                <td><span class="tag ta">Alta temp.</span></td>
+                            </tr>
+                            <tr>
+                                <td>Espinafre</td>
+                                <td>Subtropical</td>
+                                <td>55%</td>
+                                <td>5.7</td>
+                                <td>19°C</td>
+                                <td>68%</td>
+                                <td>1.9 kg</td>
+                                <td>2.1 L</td>
+                                <td><span class="tag tg">pH extremo</span></td>
+                            </tr>
+                            <tr>
+                                <td>Alface</td>
+                                <td>Semiárido</td>
+                                <td>41%</td>
+                                <td>6.4</td>
+                                <td>36°C</td>
+                                <td>55%</td>
+                                <td>1.7 kg</td>
+                                <td>2.6 L</td>
+                                <td><span class="tag ta">Alta temp.</span></td>
+                            </tr>
+                            <tr>
+                                <td>Tomate</td>
+                                <td>Tropical</td>
+                                <td>74%</td>
+                                <td>6.8</td>
+                                <td>26°C</td>
+                                <td>90%</td>
+                                <td>3.4 kg</td>
+                                <td>2.8 L</td>
+                                <td><span class="tag tb">Normal</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <!--Fim: View Pesquisador-->
+
+    </div>
+
+    <script src="../js/plataforma.js"></script>
+</body>
+
+</html>
