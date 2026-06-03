@@ -42,6 +42,6 @@ function switchPage(id, btn) {
 function sair() {
     sessionStorage.removeItem('zenit-nome');
     sessionStorage.removeItem('zenit-perfil');
-    window.location.href = 'index.html';
+    window.location.href = '../../index.html';
 }
 // Fim: Sair
